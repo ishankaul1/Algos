@@ -1,6 +1,6 @@
 import math
 
-#Python3 implementation of Maximum Subarray problem: find maximum sum of a subarray in a given array
+#Python3 implementation of Maximum Sum Subarray problem: find maximum sum of a subarray in a given array
 #Includes optimal Kadane's algorithm solution, as well as suboptimal (O(nlogn)) and optimal (O(n)) divide and conquer solutions.
 
 
