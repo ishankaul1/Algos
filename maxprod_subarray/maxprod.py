@@ -72,7 +72,7 @@ def maxProductNoZeros(arr):
     return max(elimFirstProd, elimLastProd)
 
 def test1():
-    arr = [-2, 0]
+    arr = [-2, 0, -4, 0, -8, 0, -1]
     print("Correct: 0")
     print("Solution: " + str(maxProduct(arr)))
 
@@ -93,7 +93,10 @@ def test5():
     arr = [2, 0, 3, -2, 4 ,-2]
     print("Correct: 48")
     print("Solution: " + str(maxProduct(arr)))
-
+def test6():
+    arr = [-2, 0]
+    print("Correct: 0")
+    print("Solution: " + str(maxProduct(arr)))
 
 def main():
     test1()
@@ -101,7 +104,7 @@ def main():
     test3()
     test4()
     test5()
-
+    test6()
 main()
 
 
