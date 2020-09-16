@@ -4,12 +4,10 @@ def get_subsets(arr):
     subsets = []
     for num in range(2 ** bitlen):
         subset = []
-        if num & 1:
-            subset.append(arr[0])
-        for i in range(1, bitlen):
-            num = num >> 1
+        for i in range(0, bitlen):
             if num & 1:
                 subset.append(arr[i])
+            num = num >> 1
         subsets.append(subset)
 
     return subsets
