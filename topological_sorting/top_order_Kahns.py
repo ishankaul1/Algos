@@ -7,7 +7,7 @@ class Top_Sort_Kahns:
     def __init__(self, vertices):
         self.vertices = vertices #number of vertices
         self.adj_list = defaultdict(list) #dictionary with key = number val of vertice, val = list of directed edges that start from key (u = key, v = values in list)
-        self.indegrees = [0] * self.vertices #keeps track of indegrees for each vertice - used for Kahn's topological sorting
+        self.indegrees = [0 for _ in range(self.vertices)] #keeps track of indegrees for each vertice - used for Kahn's topological sorting
         self.num_visited = 0 #keep track of number of visited nodes; need to detect cycles
         
     #adds one edge to adjacency list

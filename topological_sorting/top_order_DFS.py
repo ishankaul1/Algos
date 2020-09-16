@@ -6,8 +6,8 @@ class Top_Sort_DFS:
     def __init__(self, vertices):
         self.vertices = vertices #number of vertices
         self.adj_list = defaultdict(list) #dictionary with key = number val of vertice, val = list of directed edges that start from key (u = key, v = values in list)
-        self.visited = [False] * self.vertices #keeps track of whether each vertice has been visited by topological sort
-        self.branch_visited = [False] * self.vertices #keeps track of vertices that have been visited WITHIN recursive branch; reset every time a branch is exited
+        self.visited = [False for _ in range(self.vertices)] #keeps track of whether each vertice has been visited by topological sort
+        self.branch_visited = [False for _ in range( self.vertices)] #keeps track of vertices that have been visited WITHIN recursive branch; reset every time a branch is exited
 
     #adds one edge to adjacency list
     def addEdge(self, u, v):
@@ -18,6 +18,8 @@ class Top_Sort_DFS:
         for node in range(self.vertices):
             if (not self.visited[node]):
                 stack = self.top_sort_util(node, stack)
+                if stack == False:
+                    return False
         return reversed(stack)
 
     def top_sort_util(self, node, stack):
@@ -31,8 +33,10 @@ class Top_Sort_DFS:
                     if (self.branch_visited[i]):
                         print(str(i), end=" ")
                 print()
+                return False
             if (not self.visited[v]):
-                self.top_sort_util(v, stack)
+                if not self.top_sort_util(v, stack):
+                    return False
 
         stack.append(node)
         self.branch_visited[node] = False

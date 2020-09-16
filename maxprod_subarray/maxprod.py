@@ -71,32 +71,68 @@ def maxProductNoZeros(arr):
 
     return max(elimFirstProd, elimLastProd)
 
+#Dynamic programming algorithm - saves local minimum and maximum at each step to compute new local min, new local max, and optimal solution. Works in a similar fashion to Kadane's algorithm for maximum sum subarray, but needs to save local min as well because multiplying by a negative number can cause a minimal subarray to become the new local max
+def maxProduct_DP(arr):
+    local_min = arr[0]
+    local_max = arr[0]
+    global_max = arr[0]
+    for num in arr[1:]:
+        local_max = max(num, local_max * num)
+        local_min = min(num, local_min * num)
+        if local_max > global_max:
+            global_max = local_max
+
+    return global_max
+
+
+
 def test1():
     arr = [-2, 0, -4, 0, -8, 0, -1]
     print("Correct: 0")
     print("Solution: " + str(maxProduct(arr)))
+    print("DP Solution: " + str(maxProduct(arr)))
+    print()
 
 def test2():
     arr = [-3, 5, 8, 10, 4, -2, 1]
     print("Correct: 9600")
     print("Solution: " + str(maxProduct(arr)))
+    print("DP Solution: " + str(maxProduct(arr)))
+    print()
 
 def test3():
     arr = [-3, 5, 8, -4, 1, -3, 15]
     print("Correct: 7200")
     print("Solution: " + str(maxProduct(arr)))
+    print("DP Solution: " + str(maxProduct(arr)))
+    print()
+
+    
 def test4():
     arr = [2, 3, -2, 4]
     print("Correct: 6")
     print("Solution: " + str(maxProduct(arr)))
+    print("DP Solution: " + str(maxProduct(arr)))
+    print()
+
+    
+    
 def test5():
     arr = [2, 0, 3, -2, 4 ,-2]
     print("Correct: 48")
     print("Solution: " + str(maxProduct(arr)))
+    print("DP Solution: " + str(maxProduct(arr)))
+    print()
+
+    
+    
+    
 def test6():
     arr = [-2, 0]
     print("Correct: 0")
     print("Solution: " + str(maxProduct(arr)))
+    print("DP Solution: " + str(maxProduct(arr)))
+    print()
 
 def main():
     test1()
