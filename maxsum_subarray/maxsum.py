@@ -40,12 +40,7 @@ def maxSub_DC_slow(array):
     crossMaxSum = maxCrossSum(L, R)
 
     #return solution
-    if leftMaxSum >= rightMaxSum and leftMaxSum >= crossMaxSum:
-        return leftMaxSum
-    elif rightMaxSum >= leftMaxSum and rightMaxSum >= crossMaxSum:
-        return rightMaxSum
-    else:
-        return crossMaxSum
+    return max(leftMaxSum, rightMaxSum, crossMaxSum)
 
 #O(n) iterative crossing sum calculation
 def maxCrossSum(L, R):
